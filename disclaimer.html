@@ -4,71 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disclaimer - ExamSearch Pakistan</title>
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <link href="https://jsdelivr.net" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; color: #212529; display: flex; flex-direction: column; min-height: 100vh; }
-        .navbar-brand { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; }
-        footer { margin-top: auto; }
+        :root { --primary: #0d6efd; --danger: #dc3545; --bg: #f8f9fa; --text: #212529; --muted: #6c757d; --border: #dee2e6; }
+        * { box-sizing: border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+        body { margin: 0; background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; line-height: 1.7; }
+        .navbar { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .brand { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .brand span { color: var(--danger); }
+        .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 14px; }
+        .nav-links a:hover { color: var(--primary); }
+        .container { max-width: 850px; width: 100%; margin: 40px auto; padding: 0 20px; }
+        .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        h1 { color: var(--primary); margin-top: 0; font-size: 28px; }
+        h3 { margin-top: 24px; font-size: 18px; }
+        p { color: var(--muted); font-size: 15px; }
+        footer { margin-top: auto; background: #fff; border-top: 1px solid var(--border); padding: 25px 20px; text-align: center; font-size: 14px; color: var(--muted); }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+        .footer-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+        .footer-links a:hover { color: var(--primary); }
     </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand text-primary" href="index.html"><i class="bi bi-mortarboard-fill me-1"></i>Exam<span class="text-danger">Search</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="guides.html">Study Guides</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="brand" href="index.html">Exam<span>Search</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="guides.html">Study Guides</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main class="container my-5" style="max-width: 850px;">
-        <div class="card border-0 shadow-sm p-4 p-md-5">
-            <h1 class="fw-bold text-primary mb-3">Disclaimer</h1>
-            <p class="text-secondary">
-                All information, past paper questions, study notes, diagrams, and video resources published on <strong>ExamSearch Pakistan</strong> are provided in good faith and for general educational and exam preparation purposes only.
-            </p>
+    <main class="container">
+        <div class="card">
+            <h1>Disclaimer</h1>
+            <p>All information, past paper questions, study notes, diagrams, and video resources published on <strong>ExamSearch Pakistan</strong> are provided in good faith and for general educational and exam preparation purposes only.</p>
 
-            <h5 class="fw-bold mt-4">No Official Board Affiliation</h5>
-            <p class="text-secondary">
-                ExamSearch Pakistan is an independent educational portal and is <strong>not affiliated, associated, authorized, endorsed by, or officially connected</strong> with the Board of Secondary Education Karachi (BSEK), Board of Intermediate Education Karachi (BIEK), Federal Board (FBISE), or any other governmental educational board in Pakistan.
-            </p>
+            <h3>No Official Board Affiliation</h3>
+            <p>ExamSearch Pakistan is an independent educational portal and is <strong>not affiliated, associated, authorized, endorsed by, or officially connected</strong> with the Board of Secondary Education Karachi (BSEK), Board of Intermediate Education Karachi (BIEK), Federal Board (FBISE), or any other governmental educational board in Pakistan.</p>
 
-            <h5 class="fw-bold mt-4">Accuracy of Educational Content</h5>
-            <p class="text-secondary">
-                While we strive to keep solutions accurate and aligned with current syllabi, ExamSearch Pakistan makes no warranties regarding the completeness or absolute accuracy of this material. Students should always consult their official textbooks and board notifications for final exam policies.
-            </p>
+            <h3>Accuracy of Educational Content</h3>
+            <p>While we strive to keep solutions accurate and aligned with current syllabi, ExamSearch Pakistan makes no warranties regarding the completeness or absolute accuracy of this material. Students should always consult their official textbooks and board notifications for final exam policies.</p>
 
-            <h5 class="fw-bold mt-4">Embedded Media & Copyrights</h5>
-            <p class="text-secondary mb-0">
-                Video lectures embedded on this platform are publicly available educational resources hosted on YouTube. All copyrights belong to their respective content creators.
-            </p>
+            <h3>Embedded Media & Copyrights</h3>
+            <p style="margin-bottom:0;">Video lectures embedded on this platform are publicly available educational resources hosted on YouTube. All copyrights belong to their respective content creators.</p>
         </div>
     </main>
 
-    <footer class="bg-white border-top py-4 text-center text-muted small">
-        <div class="container">
-            <div class="d-flex justify-content-center flex-wrap gap-3 mb-2 fw-semibold">
-                <a href="index.html" class="text-decoration-none text-secondary">Home</a>
-                <a href="guides.html" class="text-decoration-none text-secondary">Study Guides</a>
-                <a href="about.html" class="text-decoration-none text-secondary">About Us</a>
-                <a href="contact.html" class="text-decoration-none text-secondary">Contact Us</a>
-                <a href="privacy-policy.html" class="text-decoration-none text-secondary">Privacy Policy</a>
-                <a href="disclaimer.html" class="text-decoration-none text-secondary">Disclaimer</a>
-            </div>
-            <div>&copy; 2026 ExamSearch Pakistan. All Rights Reserved.</div>
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="guides.html">Study Guides</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
+        <div>&copy; 2026 ExamSearch Pakistan. All Rights Reserved.</div>
     </footer>
-
-    <script src="https://jsdelivr.net"></script>
 </body>
 </html>
