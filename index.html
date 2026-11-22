@@ -5,153 +5,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExamSearch Pakistan - Board Past Papers, Notes & Video Solutions</title>
     <meta name="description" content="Search Karachi Board, Federal Board, and Punjab Board past papers, repeated questions by year, solved PDFs, diagrams, and video lectures.">
-    
-    <!-- Reliable Cloudflare CDN for Bootstrap 5 & Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     <style>
-        body { background-color: #f8f9fa; color: #212529; display: flex; flex-direction: column; min-height: 100vh; }
-        .navbar-brand { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; }
-        .hero-section { background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%); border-bottom: 1px solid #e3e6ea; }
-        .search-input-group { max-width: 720px; margin: 0 auto; }
-        .search-input { border-radius: 50px 0 0 50px !important; padding: 14px 24px; border-right: none; font-size: 1.05rem; }
-        .search-input:focus { box-shadow: none; border-color: #0d6efd; }
-        .search-icon-btn { border-radius: 0 50px 50px 0 !important; background: #fff; border: 1px solid #ced4da; border-left: none; padding-right: 22px; color: #0d6efd; }
-        .question-card { transition: transform 0.15s ease, box-shadow 0.15s ease; border: 1px solid #e5e7eb; }
-        .question-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.07) !important; }
-        .ans-text-box { background-color: #f8f9fa; border-left: 4px solid #0d6efd; white-space: pre-wrap; line-height: 1.7; font-size: 0.98rem; }
-        .media-frame { width: 100%; height: 430px; border-radius: 8px; border: 1px solid #dee2e6; }
-        footer { margin-top: auto; }
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0b5ed7;
+            --danger: #dc3545;
+            --bg: #f8f9fa;
+            --text: #212529;
+            --muted: #6c757d;
+            --border: #dee2e6;
+        }
+        * { box-sizing: border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+        body { margin: 0; background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; line-height: 1.6; }
+
+        /* Navbar */
+        .navbar {
+            background: #fff; border-bottom: 1px solid var(--border); padding: 12px 20px;
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .nav-container {
+            max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 12px;
+        }
+        .brand { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .brand span { color: var(--danger); }
+        .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 14px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .criteria-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .badge-pill {
+            background: #e7f1ff; color: var(--primary); border: 1px solid #b6d4fe;
+            padding: 5px 14px; border-radius: 50px; font-size: 13px; font-weight: 600;
+        }
+        .btn-outline {
+            background: #fff; color: var(--primary); border: 1px solid var(--primary);
+            padding: 5px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;
+        }
+        .btn-outline:hover { background: var(--primary); color: #fff; }
+
+        /* Hero Search Section */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+            border-bottom: 1px solid #e3e6ea; padding: 45px 20px; text-align: center;
+        }
+        .hero h1 { font-size: 32px; font-weight: 800; margin: 0 0 10px 0; }
+        .hero p { color: var(--muted); font-size: 16px; max-width: 650px; margin: 0 auto 25px; }
+        .search-wrap { max-width: 700px; margin: 0 auto; position: relative; }
+        .search-input {
+            width: 100%; padding: 15px 24px; font-size: 16px; border: 1px solid #ced4da;
+            border-radius: 50px; box-shadow: 0 3px 10px rgba(0,0,0,0.06); outline: none;
+        }
+        .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(13,110,253,0.15); }
+
+        /* Main Container */
+        .container { max-width: 900px; width: 100%; margin: 25px auto; padding: 0 20px; }
+        .stats { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 15px; }
+
+        /* Result Cards */
+        .card {
+            background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+            padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.07); }
+        .q-title { font-size: 18px; font-weight: 700; color: var(--primary); margin: 0 0 12px 0; }
+        .card-footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .year-badge {
+            background: #fff3cd; color: #664d03; border: 1px solid #ffecb5;
+            padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;
+        }
+        .btn-primary {
+            background: var(--primary); color: #fff; border: none; padding: 8px 18px;
+            border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+
+        /* Grid Cards */
+        .section-title {
+            font-size: 20px; font-weight: 700; border-left: 4px solid var(--primary);
+            padding-left: 12px; margin: 35px 0 18px;
+        }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 30px; }
+        .grid-3 .card h4 { margin: 0 0 8px 0; color: var(--primary); font-size: 17px; }
+        .grid-3 .card p { margin: 0; font-size: 14px; color: var(--muted); }
+
+        /* FAQ */
+        .faq-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+        .faq-q { font-weight: 700; margin-bottom: 6px; font-size: 15px; }
+        .faq-a { margin: 0; font-size: 14px; color: var(--muted); }
+
+        /* Footer */
+        footer {
+            margin-top: auto; background: #fff; border-top: 1px solid var(--border);
+            padding: 25px 20px; text-align: center; font-size: 14px; color: var(--muted);
+        }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+        .footer-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+        .footer-links a:hover { color: var(--primary); }
+
+        /* Modals */
+        .modal-backdrop {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            display: flex; justify-content: center; align-items: center; z-index: 999; padding: 15px;
+        }
+        .modal-dialog {
+            background: #fff; width: 100%; max-width: 460px; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        .modal-lg { max-width: 850px; max-height: 90vh; display: flex; flex-direction: column; }
+        .modal-header {
+            background: var(--primary); color: #fff; padding: 16px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-header.light { background: #f8f9fa; color: var(--text); border-bottom: 1px solid var(--border); }
+        .modal-body { padding: 22px; overflow-y: auto; }
+        .close-btn {
+            background: #e9ecef; border: none; width: 32px; height: 32px; border-radius: 50%;
+            font-size: 20px; cursor: pointer; font-weight: bold; line-height: 1;
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+        .form-select {
+            width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 6px; font-size: 15px; background: #fff;
+        }
+        .ans-box {
+            background: #f8f9fa; border-left: 4px solid var(--primary); padding: 15px;
+            border-radius: 6px; white-space: pre-wrap; font-size: 15px; margin-bottom: 20px;
+        }
+        .sec-label { font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin: 0 0 8px 0; }
+        .media-frame { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; }
+        .ans-img { max-width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px; }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand text-primary" href="index.html">
-                <i class="bi bi-mortarboard-fill me-1"></i>Exam<span class="text-danger">Search</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="guides.html">Study Guides</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <div class="d-flex align-items-center gap-2 flex-wrap">
-                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fs-6" id="activeCriteriaText">
-                        <i class="bi bi-funnel-fill me-1"></i> Loading Index...
-                    </span>
-                    <button class="btn btn-outline-primary btn-sm fw-semibold" onclick="openCriteriaModal()">
-                        <i class="bi bi-sliders me-1"></i> Change Criteria
-                    </button>
-                </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="brand" href="index.html">Exam<span>Search</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="guides.html">Study Guides</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="criteria-bar">
+                <span class="badge-pill" id="activeCriteriaText">Loading Index...</span>
+                <button class="btn-outline" onclick="openCriteriaModal()">Change Criteria</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Search Section -->
-    <section class="hero-section py-5">
-        <div class="container text-center">
-            <h1 class="display-6 fw-bold text-dark mb-2">Board Exam Past Paper Search</h1>
-            <p class="lead text-secondary mb-4">Find repeated questions by year, solved PDFs, labeled diagrams & video explanations</p>
-            
-            <div class="input-group search-input-group shadow-sm rounded-pill">
-                <input type="text" id="searchInput" class="form-control search-input" placeholder="Search question, topic, or exam year (e.g., Newton, 2024)..." onkeyup="filterResults()">
-                <span class="input-group-text search-icon-btn"><i class="bi bi-search fs-5"></i></span>
-            </div>
+    <section class="hero">
+        <h1>Board Exam Past Paper Search</h1>
+        <p>Find repeated questions by year, solved PDFs, labeled diagrams & video explanations</p>
+        <div class="search-wrap">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search question, topic, or exam year (e.g., Newton, 2024)..." onkeyup="filterResults()">
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container my-4" style="max-width: 900px;">
-        
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted small fw-semibold" id="resultStats"></span>
-        </div>
-        <div id="resultsList" class="mb-5"></div>
+    <main class="container">
+        <div class="stats" id="resultStats"></div>
+        <div id="resultsList"></div>
 
-        <!-- Supported Boards -->
-        <h4 class="fw-bold mb-3 border-start border-4 border-primary ps-3">Supported Boards & Syllabi</h4>
-        <div class="row g-3 mb-5">
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary fw-bold"><i class="bi bi-building me-1"></i> Karachi Board</h5>
-                        <p class="card-text text-secondary small">BSEK & BIEK 10-year repeated questions, derivations, and numericals for 9th, 10th, 11th & 12th classes.</p>
-                    </div>
-                </div>
+        <h3 class="section-title">Supported Boards & Syllabi</h3>
+        <div class="grid-3">
+            <div class="card">
+                <h4>Karachi Board (BSEK & BIEK)</h4>
+                <p>10-year repeated questions, derivations, and numericals for 9th, 10th, 11th & 12th classes.</p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary fw-bold"><i class="bi bi-award me-1"></i> Federal Board</h5>
-                        <p class="card-text text-secondary small">FBISE SLO-based conceptual questions, diagrams, and chapter-wise past paper solutions for SSC & HSSC.</p>
-                    </div>
-                </div>
+            <div class="card">
+                <h4>Federal Board (FBISE)</h4>
+                <p>SLO-based conceptual questions, diagrams, and chapter-wise past paper solutions for SSC & HSSC.</p>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary fw-bold"><i class="bi bi-book me-1"></i> Punjab Boards</h5>
-                        <p class="card-text text-secondary small">Important theorems, long questions, and solved notes for Lahore, Rawalpindi, Multan & Faisalabad boards.</p>
-                    </div>
-                </div>
+            <div class="card">
+                <h4>Punjab Boards (BISE)</h4>
+                <p>Important theorems, long questions, and solved notes for Lahore, Rawalpindi, Multan & Faisalabad boards.</p>
             </div>
         </div>
 
-        <!-- Static Educational Guide -->
-        <div class="card border-0 shadow-sm mb-5">
-            <div class="card-body p-4">
-                <h3 class="fw-bold h4 mb-3">How Repeated Past Papers Help You Score 90%+ in Board Exams</h3>
-                <p class="text-secondary">
-                    Analyzing the last 10 years of Matric and Intermediate board examinations in Pakistan shows that nearly 70% of descriptive questions and numerical problems repeat from core syllabus topics. <strong>ExamSearch</strong> groups identical questions from multiple years into one clean result so you can focus on high-priority topics first.
-                </p>
-                <ul class="text-secondary mb-3">
-                    <li><strong>Written Explanations:</strong> Exam-ready definitions and derivations with clear headings.</li>
-                    <li><strong>Visual Diagrams:</strong> High-resolution labeled diagrams for Physics, Chemistry, and Biology.</li>
-                    <li><strong>Video Lectures & PDFs:</strong> Step-by-step video walkthroughs and downloadable notes inside a single popup.</li>
-                </ul>
-                <a href="guides.html" class="btn btn-primary btn-sm fw-semibold">Explore Study Guides & Exam Tips <i class="bi bi-arrow-right ms-1"></i></a>
-            </div>
-        </div>
-
-        <!-- FAQs -->
-        <h4 class="fw-bold mb-3 border-start border-4 border-primary ps-3">Frequently Asked Questions</h4>
-        <div class="accordion shadow-sm mb-4" id="faqAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                        Are these past papers updated according to the latest syllabus?
-                    </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-secondary small">
-                        Yes, our database is regularly updated after every annual board examination to include the newest exam years and latest syllabus topics.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                        How do I switch my Board, Class, or Subject?
-                    </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-secondary small">
-                        Simply click the <strong>"Change Criteria"</strong> button in the top navigation bar anytime to select a different Board, Class, or Subject without refreshing the page.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-top py-4 text-center text-muted small">
-        <div class="container">
-            <div class="d-flex justify-content-center flex-wrap gap-3 mb-2 fw-semibold">
+        <div class="card">
+            <h3 style="margin-top:0;">How Repeated Past Papers Help You Score 90%+ in Board Exams</h3>
+            <p style="color:var(--muted);">
