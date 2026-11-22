@@ -5,133 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Guides & Exam Preparation Tips - ExamSearch Pakistan</title>
     <meta name="description" content="Board exam preparation guides, paper presentation tips, and study schedules for Karachi Board, Federal Board, and Punjab Board students.">
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <link href="https://jsdelivr.net" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; color: #212529; display: flex; flex-direction: column; min-height: 100vh; }
-        .navbar-brand { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; }
-        footer { margin-top: auto; }
+        :root { --primary: #0d6efd; --primary-dark: #0b5ed7; --danger: #dc3545; --bg: #f8f9fa; --text: #212529; --muted: #6c757d; --border: #dee2e6; }
+        * { box-sizing: border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+        body { margin: 0; background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; line-height: 1.6; }
+        .navbar { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .brand { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .brand span { color: var(--danger); }
+        .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 14px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .btn-primary { background: var(--primary); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .hero { background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%); border-bottom: 1px solid #e3e6ea; padding: 40px 20px; text-align: center; }
+        .hero h1 { font-size: 30px; font-weight: 800; margin: 0 0 8px 0; }
+        .hero p { color: var(--muted); font-size: 16px; max-width: 650px; margin: 0 auto; }
+        .container { max-width: 900px; width: 100%; margin: 30px auto; padding: 0 20px; }
+        .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .tag { display: inline-block; background: #e7f1ff; color: var(--primary); padding: 3px 10px; border-radius: 5px; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+        .card h2 { margin: 0 0 10px 0; font-size: 20px; color: var(--text); }
+        .card p, .card li { color: var(--muted); font-size: 15px; }
+        .card ul { padding-left: 20px; margin-bottom: 0; }
+        .card li { margin-bottom: 6px; }
+        footer { margin-top: auto; background: #fff; border-top: 1px solid var(--border); padding: 25px 20px; text-align: center; font-size: 14px; color: var(--muted); }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+        .footer-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+        .footer-links a:hover { color: var(--primary); }
     </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand text-primary" href="index.html"><i class="bi bi-mortarboard-fill me-1"></i>Exam<span class="text-danger">Search</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="guides.html">Study Guides</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <a href="index.html" class="btn btn-primary btn-sm fw-semibold"><i class="bi bi-search me-1"></i> Search Past Papers</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="brand" href="index.html">Exam<span>Search</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="guides.html" class="active">Study Guides</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
             </div>
+            <a href="index.html" class="btn-primary">Search Past Papers</a>
         </div>
     </nav>
 
-    <header class="bg-white border-bottom py-5 text-center">
-        <div class="container">
-            <h1 class="fw-bold display-6">Board Exam Study Guides & Preparation Tips</h1>
-            <p class="lead text-secondary mb-0">Proven strategies for Matric (9th & 10th) and Intermediate (11th & 12th) students across Pakistan</p>
-        </div>
-    </header>
+    <section class="hero">
+        <h1>Board Exam Study Guides & Preparation Tips</h1>
+        <p>Proven exam strategies for Matric (9th & 10th) and Intermediate (11th & 12th) students across Pakistan</p>
+    </section>
 
-    <main class="container my-5" style="max-width: 900px;">
-
-        <!-- Guide 1 -->
-        <article class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
-                <span class="badge bg-primary-subtle text-primary mb-2">Exam Strategy</span>
-                <h2 class="h4 fw-bold">1. How to Use 10-Year Past Papers Effectively for Board Exams</h2>
-                <p class="text-secondary">
-                    Many students simply memorize past papers without understanding the question pattern. The smartest approach is to categorize questions by frequency. When a topic appears in 2018, 2021, 2023, and 2024, it is a core syllabus concept that examiners love to test.
-                </p>
-                <ul class="text-secondary mb-0">
-                    <li><strong>Step 1:</strong> Start with questions repeated 3 or more times in the last 10 years.</li>
-                    <li><strong>Step 2:</strong> Write down the formulas and definitions in a separate revision register.</li>
-                    <li><strong>Step 3:</strong> Practice solving at least two full-length past papers under timed exam conditions before your final date sheet begins.</li>
-                </ul>
-            </div>
+    <main class="container">
+        <article class="card">
+            <span class="tag">Exam Strategy</span>
+            <h2>1. How to Use 10-Year Past Papers Effectively for Board Exams</h2>
+            <p>Many students simply memorize past papers without understanding the question pattern. The smartest approach is to categorize questions by frequency. When a topic appears in 2018, 2021, 2023, and 2024, it is a core syllabus concept that examiners consistently test.</p>
+            <ul>
+                <li><strong>Step 1:</strong> Start with questions repeated 3 or more times in the last 10 years.</li>
+                <li><strong>Step 2:</strong> Write down key formulas and definitions in a separate revision notebook.</li>
+                <li><strong>Step 3:</strong> Solve at least two full-length past papers under timed exam conditions before your exams start.</li>
+            </ul>
         </article>
 
-        <!-- Guide 2 -->
-        <article class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
-                <span class="badge bg-success-subtle text-success mb-2">Paper Presentation</span>
-                <h2 class="h4 fw-bold">2. Board Paper Presentation Tips to Gain Extra Marks</h2>
-                <p class="text-secondary">
-                    In Karachi Board (BSEK/BIEK), Federal Board (FBISE), and Punjab Boards, neat presentation makes it easier for the examiner to award full marks on descriptive answers.
-                </p>
-                <ul class="text-secondary mb-0">
-                    <li><strong>Use Cut Markers Properly:</strong> Use a 604 or 605 blue/black marker for main headings and subheadings, and keep the body text neat with a ballpoint or ink pen.</li>
-                    <li><strong>Draw Labeled Diagrams:</strong> Always draw neat pencil diagrams with clear horizontal labels in Physics, Chemistry, and Biology—even if the question only briefly mentions the mechanism.</li>
-                    <li><strong>Highlight Final Numerical Answers:</strong> In Mathematics and Physics numericals, write "Given Data", "Formula", and "Calculation" clearly, and enclose the final answer with its SI unit inside a box.</li>
-                </ul>
-            </div>
+        <article class="card">
+            <span class="tag">Paper Presentation</span>
+            <h2>2. Board Paper Presentation Tips to Gain Extra Marks</h2>
+            <p>In Karachi Board (BSEK/BIEK), Federal Board (FBISE), and Punjab Boards, neat presentation helps examiners award full marks quickly.</p>
+            <ul>
+                <li><strong>Use Cut Markers Properly:</strong> Use a 604 or 605 blue/black marker for main headings and subheadings, keeping body text clean with a ballpoint or ink pen.</li>
+                <li><strong>Draw Labeled Diagrams:</strong> Always draw neat pencil diagrams with clear horizontal labels in Physics, Chemistry, and Biology.</li>
+                <li><strong>Highlight Numerical Answers:</strong> Write "Given Data", "Formula", and "Calculation" clearly, and enclose the final answer with its SI unit inside a box.</li>
+            </ul>
         </article>
 
-        <!-- Guide 3 -->
-        <article class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
-                <span class="badge bg-warning-subtle text-warning-emphasis mb-2">Science Subjects</span>
-                <h2 class="h4 fw-bold">3. Mastering Physics Derivations and Numericals</h2>
-                <p class="text-secondary">
-                    Physics is often considered challenging because it combines theory with mathematics. To score 85+ in Matric or Inter Physics, break your preparation into three parts:
-                </p>
-                <p class="text-secondary mb-0">
-                    First, memorize exact statements of laws (such as Newton's Laws, Ohm's Law, and Coulomb's Law). Second, practice step-by-step mathematical derivations by writing each step aloud so you understand why one equation leads to the next. Finally, solve textbook examples first, as board numericals are frequently taken directly from solved book examples with slightly changed values.
-                </p>
-            </div>
+        <article class="card">
+            <span class="tag">Science Subjects</span>
+            <h2>3. Mastering Physics Derivations and Numericals</h2>
+            <p>To score 85+ in Matric or Inter Physics, memorize exact statements of fundamental laws first, practice step-by-step mathematical derivations by writing each line logically, and solve textbook examples thoroughly—as board numericals are frequently adapted directly from solved book examples.</p>
         </article>
 
-        <!-- Guide 4 -->
-        <article class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
-                <span class="badge bg-info-subtle text-info-emphasis mb-2">Time Management</span>
-                <h2 class="h4 fw-bold">4. Ideal 3-Hour Exam Time Division Plan</h2>
-                <p class="text-secondary">
-                    Running out of time during the last 20 minutes is one of the biggest reasons students lose marks on long questions. Follow this simple time-allocation rule for a 3-hour (180-minute) paper:
-                </p>
-                <ul class="text-secondary mb-0">
-                    <li><strong>MCQs Section (20 Minutes):</strong> Read each statement twice carefully before filling the bubble sheet.</li>
-                    <li><strong>Short Questions (75 Minutes):</strong> Spend roughly 6 to 7 minutes per short question; keep answers concise and to the point.</li>
-                    <li><strong>Long/Descriptive Questions (70 Minutes):</strong> Dedicate 20–22 minutes per detailed question including diagrams.</li>
-                    <li><strong>Final Revision (15 Minutes):</strong> Check question numbers, underline important headings, and verify units in numericals.</li>
-                </ul>
-            </div>
+        <article class="card">
+            <span class="tag">Time Management</span>
+            <h2>4. Ideal 3-Hour Exam Time Division Plan</h2>
+            <ul>
+                <li><strong>MCQs Section (20 Minutes):</strong> Read each statement twice carefully before filling the answer sheet.</li>
+                <li><strong>Short Questions (75 Minutes):</strong> Spend roughly 6 to 7 minutes per short question; keep answers concise and accurate.</li>
+                <li><strong>Long Questions (70 Minutes):</strong> Dedicate 20–22 minutes per detailed question including labeled diagrams.</li>
+                <li><strong>Final Revision (15 Minutes):</strong> Verify question numbers, underline key headings, and double-check units in numericals.</li>
+            </ul>
         </article>
 
-        <!-- Guide 5 -->
-        <article class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
-                <span class="badge bg-danger-subtle text-danger mb-2">SLO Based Exams</span>
-                <h2 class="h4 fw-bold">5. Understanding Federal Board (FBISE) SLO-Based Examination Pattern</h2>
-                <p class="text-secondary mb-0">
-                    Under the Student Learning Outcomes (SLO) system introduced by FBISE and adopted gradually by other boards, questions test conceptual understanding rather than rote memorization. Instead of asking "Define Hybridization", an SLO question might ask "Why does Methane form a tetrahedral angle of 109.5°?". Always focus on the <em>"Why"</em> and <em>"How"</em> behind every scientific concept.
-                </p>
-            </div>
+        <article class="card">
+            <span class="tag">SLO Pattern</span>
+            <h2>5. Understanding Federal Board (FBISE) SLO-Based Examination Pattern</h2>
+            <p>Under the Student Learning Outcomes (SLO) system, questions evaluate conceptual clarity rather than rote memorization. Always focus on the <em>"Why"</em> and <em>"How"</em> behind every scientific principle and chemical reaction.</p>
         </article>
-
     </main>
 
-    <footer class="bg-white border-top py-4 text-center text-muted small">
-        <div class="container">
-            <div class="d-flex justify-content-center flex-wrap gap-3 mb-2 fw-semibold">
-                <a href="index.html" class="text-decoration-none text-secondary">Home</a>
-                <a href="guides.html" class="text-decoration-none text-secondary">Study Guides</a>
-                <a href="about.html" class="text-decoration-none text-secondary">About Us</a>
-                <a href="contact.html" class="text-decoration-none text-secondary">Contact Us</a>
-                <a href="privacy-policy.html" class="text-decoration-none text-secondary">Privacy Policy</a>
-                <a href="disclaimer.html" class="text-decoration-none text-secondary">Disclaimer</a>
-            </div>
-            <div>&copy; 2026 ExamSearch Pakistan. All Rights Reserved.</div>
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="guides.html">Study Guides</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
+        <div>&copy; 2026 ExamSearch Pakistan. All Rights Reserved.</div>
     </footer>
-
-    <script src="https://jsdelivr.net"></script>
 </body>
 </html>
