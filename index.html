@@ -95,13 +95,65 @@
         .faq-a { margin: 0; font-size: 14px; color: var(--muted); }
 
         /* Footer */
-        footer {
-            margin-top: auto; background: #fff; border-top: 1px solid var(--border);
-            padding: 25px 20px; text-align: center; font-size: 14px; color: var(--muted);
+                footer {
+            margin-top: auto;
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+            padding: 18px 20px;
+            font-size: 14px;
+            color: #6c757d;
         }
-        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
-        .footer-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
-        .footer-links a:hover { color: var(--primary); }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-brand {
+            font-weight: 700;
+            color: #212529;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-links a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer-links a:hover {
+            color: #0d6efd;
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background 0.2s ease;
+        }
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
 
         /* Modals */
         .modal-backdrop {
